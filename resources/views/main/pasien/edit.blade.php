@@ -27,12 +27,12 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="umur" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
-                        Umur
+                    <label for="tanggal-lahir" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
+                        Tanggal Lahir
                     </label>
                     <div class="col-lg-11 mt-2">
-                        <input type="text" class="form-control umur" name="umur" id="umur" placeholder="masukkan umur" value="{{$pasien->umur}}">
-                        <div class="invalid-feedback error-umur"></div>
+                        <input type="date" class="form-control tanggal_lahir" name="tanggal_lahir" id="tanggal-lahir" placeholder="masukkan tanggal lahir" value="{{$pasien->tanggal_lahir}}">
+                        <div class="invalid-feedback error-tanggal_lahir"></div>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -55,6 +55,20 @@
                     <div class="col-lg-11 mt-2">
                         <textarea class="form-control alamat" rows="8" name="alamat" id="alamat" placeholder="masukkan alamat">{{$pasien->alamat}}</textarea>
                         <div class="invalid-feedback error-alamat"></div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="kecamatan" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
+                        Kecamatan
+                    </label>
+                    <div class="col-lg-11 mt-2">
+                        <select class="form-control kecamatan" name="kecamatan" id="kecamatan">
+                            <option value="">Pilih kecamatan</option>
+                            @foreach ($kecamatan as $kecamatan)
+                                <option value="{{$kecamatan}}" {{$kecamatan == $pasien->kecamatan ? 'selected' : ''}}>{{$kecamatan}}</option>
+                            @endforeach
+                        </select>
+                        <div class="invalid-feedback error-kecamatan"></div>
                     </div>
                 </div>
                 <div class="form-group row">

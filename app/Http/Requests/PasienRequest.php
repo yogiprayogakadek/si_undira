@@ -23,11 +23,12 @@ class PasienRequest extends FormRequest
     {
         return [
             'nama' => 'required',
-            'umur' => 'required|numeric',
+            'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
             'nik' => 'required|regex:/^[0-9]{16}$/|size:16',
-            'rm' => 'required'
+            'rm' => 'required',
+            'kecamatan' => 'required'
         ];
     }
 
@@ -47,11 +48,12 @@ class PasienRequest extends FormRequest
     {
         return [
             'nama' => 'Nama',
-            'umur' => 'Umur',
+            'tanggal_lahir' => 'Tanggal lahir',
             'jenis_kelamin' => 'Jenis Kelamin',
             'alamat' => 'Alamat',
             'nik' => 'NIK',
-            'rm' => 'Nomor rekam medis'
+            'rm' => 'Nomor rekam medis',
+            'kecamatan' => 'Kecamatan'
         ];
     }
 }

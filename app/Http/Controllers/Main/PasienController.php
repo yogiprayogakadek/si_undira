@@ -15,11 +15,12 @@ class PasienController extends Controller
     {
         return [
             'nama' => $request->nama,
-            'umur' => $request->umur,
+            'tanggal_lahir' => $request->tanggal_lahir,
             'jenis_kelamin' => $request->jenis_kelamin,
             'alamat' => $request->alamat,
             'nik' => $request->nik,
             'nomor_rm' => $request->rm,
+            'kecamatan' => $request->kecamatan,
         ];
     }
 
@@ -35,6 +36,15 @@ class PasienController extends Controller
         ];
     }
 
+    public function kecamatan()
+    {
+        $kecamatan = [
+            'Baturiti', 'Kediri', 'Kerambitan', 'Marga', 'Penebel', 'Pupuan', 'Selemadeg', 'Selemadeg Barat', 'Selemadeg Timur', 'Tabanan'
+        ];
+
+        return $kecamatan;
+    }
+
     public function index()
     {
         return view('main.pasien.index');
@@ -47,23 +57,18 @@ class PasienController extends Controller
         $currentDate = new DateTime();
 
         $pasien = Pasien::all();
-        $pasien = $pasien->map(function ($item) use($currentDate, $exactYearNumber, $currentDate2Years) {
+        $pasien = $pasien->map(function ($item) use($currentDate, $exactYearNumber) {
             $kunjungan_terakhir = $item->kunjungan->last();
+
             if($kunjungan_terakhir != null) {
                 $tanggal_kunjungan_terakhir = new DateTime($kunjungan_terakhir->tanggal_kunjungan);
                 $days2Years = $exactYearNumber->diff($currentDate);
 
                 $diffCurrentToLastDateDatabase = $currentDate->diff($tanggal_kunjungan_terakhir);
 
-                // dd($diffCurrentToLastDateDatabase->days, $days2Years->days);
-
                 $is_active = $diffCurrentToLastDateDatabase->days > $days2Years->days ? false : true;
-
                 $item->is_active = $is_active;
                 $item->save();
-                // $item->update([
-                //     'is_active' => $is_active
-                // ]);
             }
             return $item;
         });
@@ -78,7 +83,9 @@ class PasienController extends Controller
     public function create()
     {
         $view = [
-            'data' => view('main.pasien.create')->render()
+            'data' => view('main.pasien.create')->with([
+                'kecamatan' => $this->kecamatan()
+            ])->render()
         ];
 
         return response()->json($view);
@@ -101,7 +108,12 @@ class PasienController extends Controller
             }
 
         } catch (\Exception $e) {
-            return response()->json($this->message('error'));
+            return response()->json([
+                'status' => 'error',
+                'title' => 'error',
+                'message' => $e->getMessage()
+            ]);
+            // return response()->json($this->message('error'));
         }
     }
 
@@ -110,7 +122,10 @@ class PasienController extends Controller
         $pasien = Pasien::find($pasien_id);
 
         $view = [
-            'data' => view('main.pasien.edit', compact('pasien'))->render()
+            'data' => view('main.pasien.edit')->with([
+                'pasien' => $pasien,
+                'kecamatan' => $this->kecamatan()
+            ])->render()
         ];
 
         return response()->json($view);

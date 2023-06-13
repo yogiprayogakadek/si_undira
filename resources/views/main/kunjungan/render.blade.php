@@ -22,7 +22,9 @@
                     <th>Nama Pasien</th>
                     <th>Nomor Rekam Medis</th>
                     <th>Tanggal Kunjungan</th>
-                    <th>Ringkasa Kondisi Pasien</th>
+                    <th>Diagnosa</th>
+                    <th>Layanan</th>
+                    <th>Jaminan</th>
                     @can('petugas')
                     <th>Aksi</th>
                     @endcan
@@ -34,7 +36,9 @@
                         <td>{{$kunjungan->pasien->nama}}</td>
                         <td>{{$kunjungan->pasien->nomor_rm}}</td>
                         <td>{{date_format(date_create($kunjungan->tanggal_kunjungan), 'd-m-Y')}}</td>
-                        <td>{{$kunjungan->ringkasan_kondisi_pasien}}</td>
+                        <td>{{$kunjungan->diagnosa}}</td>
+                        <td>{{$kunjungan->layanan}}</td>
+                        <td>{{$kunjungan->jaminan}}</td>
                         @can('petugas')
                         <td>
                             <button class="btn btn-edit btn-default" data-id="{{$kunjungan->id}}">

@@ -6,17 +6,32 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\KunjunganRequest;
 use App\Models\Kunjungan;
 use App\Models\Pasien;
+use DateTime;
 use Illuminate\Http\Request;
 
 class KunjunganController extends Controller
 {
     protected function data($request)
     {
-        return [
+        $data = [
             'pasien_id' => $request->pasien_id,
             'tanggal_kunjungan' => $request->tanggal_kunjungan,
-            'ringkasan_kondisi_pasien' => $request->ringkasan,
+            'diagnosa' => $request->diagnosa,
+            'layanan' => $request->layanan,
+            'jaminan' => $request->jaminan,
         ];
+
+        // $extension = $request->file('jaminan')->getClientOriginalExtension();
+        //     $filenamestore = $request->nik . '-' . time() . '.' . $extension;
+        //     $save_path = 'assets/uploads/jaminan';
+
+        //     if(!file_exists($save_path)) {
+        //         mkdir($save_path, 0777, true);
+        //     }
+
+        //     $request->file('jaminan')->move($save_path, $filenamestore);
+
+        return $data;
     }
 
     protected function message($status)
@@ -60,6 +75,19 @@ class KunjunganController extends Controller
     public function store(KunjunganRequest $request)
     {
         try {
+            // $extension = $request->file('jaminan')->getClientOriginalExtension();
+            // $filenamestore = $request->nik . '-' . time() . '.' . $extension;
+            // $save_path = 'assets/uploads/jaminan';
+
+            // if(!file_exists($save_path)) {
+            //     mkdir($save_path, 0777, true);
+            // }
+
+            // $request->file('jaminan')->move($save_path, $filenamestore);
+
+            // dd($this->data($request->merge(['jaminan' => $save_path . '/' . $filenamestore])));
+
+
             Kunjungan::create($this->data($request));
 
             return response()->json($this->message('success'));
@@ -94,6 +122,12 @@ class KunjunganController extends Controller
     public function dataPasien($pasien_id)
     {
         $pasien = Pasien::find($pasien_id);
+
+        $currentDate = new DateTime();
+        $tanggal_lahir = new DateTime($pasien->tanggal_lahir);
+        $interval = $tanggal_lahir->diff($currentDate);
+
+        $pasien['umur'] = $interval->y . ' tahun';
 
         return response()->json($pasien);
     }

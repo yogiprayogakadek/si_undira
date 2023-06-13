@@ -23,7 +23,9 @@ class KunjunganRequest extends FormRequest
     {
         return [
             'tanggal_kunjungan' => 'required|date',
-            'ringkasan' => 'required',
+            'diagnosa' => 'required',
+            'jaminan' => 'required',
+            'layanan' => 'required',
         ];
     }
 
@@ -39,7 +41,9 @@ class KunjunganRequest extends FormRequest
     {
         return [
             'tanggal_kunjungan' => 'Tanggal kunjungan',
-            'ringkasan' => 'Ringkasan kondisi pasien',
+            'diagnosa' => 'Diagnosa pasien',
+            'jaminan' => 'Jaminan',
+            'layanan' => 'Layanan',
         ];
     }
 }

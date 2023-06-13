@@ -89,12 +89,39 @@
                     </div>
                 </div>
                 <div class="form-group row hidden-input" hidden>
-                    <label for="ringkasan" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
-                        ringkasan
+                    <label for="diagnosa" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
+                        Diagnosa
                     </label>
                     <div class="col-lg-11 mt-2">
-                        <textarea class="form-control ringkasan" rows="8" name="ringkasan" id="ringkasan" placeholder="masukkan ringkasan kondisi pasien"></textarea>
-                        <div class="invalid-feedback error-ringkasan"></div>
+                        <textarea class="form-control diagnosa" rows="8" name="diagnosa" id="diagnosa" placeholder="masukkan diagnosa pasien"></textarea>
+                        <div class="invalid-feedback error-diagnosa"></div>
+                    </div>
+                </div>
+                {{-- <div class="form-group row hidden-input" hidden>
+                    <label for="jaminan" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
+                        Jaminan
+                    </label>
+                    <div class="col-lg-11 mt-2">
+                        <input type="file" class="form-control jaminan" name="jaminan" id="jaminan" placeholder="masukkan jaminan">
+                        <div class="invalid-feedback error-jaminan"></div>
+                    </div>
+                </div> --}}
+                <div class="form-group row hidden-input" hidden>
+                    <label for="jaminan" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
+                        Jaminan
+                    </label>
+                    <div class="col-lg-11 mt-2">
+                        <input type="text" class="form-control jaminan" name="jaminan" id="jaminan" placeholder="masukkan jaminan">
+                        <div class="invalid-feedback error-jaminan"></div>
+                    </div>
+                </div>
+                <div class="form-group row hidden-input" hidden>
+                    <label for="layanan" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">
+                        Layanan
+                    </label>
+                    <div class="col-lg-11 mt-2">
+                        <input type="text" class="form-control layanan" name="layanan" id="layanan" placeholder="masukkan layanan">
+                        <div class="invalid-feedback error-layanan"></div>
                     </div>
                 </div>
             </div>

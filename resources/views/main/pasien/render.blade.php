@@ -32,10 +32,15 @@
                 </thead>
                 <tbody>
                     @foreach ($pasien as $pasien)
+                    @php
+                        $currentDate = new DateTime();
+                        $date = new DateTime($pasien->tanggal_lahir);
+                        $interval = $date->diff($currentDate);
+                    @endphp
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$pasien->nama}}</td>
-                        <td>{{$pasien->umur}} tahun</td>
+                        <td>{{$interval->y}} tahun</td>
                         <td>{{$pasien->jenis_kelamin}}</td>
                         <td>{{$pasien->alamat}}</td>
                         <td>{{$pasien->nik}}</td>

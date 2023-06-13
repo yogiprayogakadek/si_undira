@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('pasien', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 100);
-            $table->integer('umur');
+            $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->string('alamat', 150);
+            $table->string('kecamatan', 100);
             $table->char('nik', 16);
             $table->string('nomor_rm', 20);
             $table->boolean('is_active')->default(true);

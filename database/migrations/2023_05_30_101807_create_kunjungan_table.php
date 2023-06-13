@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pasien_id')->references('id')->on('pasien');
             $table->date('tanggal_kunjungan');
-            $table->text('ringkasan_kondisi_pasien');
+            $table->text('diagnosa');
+            $table->string('jaminan', 100);
+            $table->string('layanan', 100);
             $table->timestamps();
         });
     }
