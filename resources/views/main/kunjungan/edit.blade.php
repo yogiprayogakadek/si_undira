@@ -32,7 +32,7 @@
                         Umur
                     </label>
                     <div class="col-lg-11 mt-2">
-                        <input type="text" class="form-control umur" name="umur" id="umur" placeholder="masukkan umur" disabled value="{{$kunjungan->pasien->umur}}">
+                        <input type="text" class="form-control umur" name="umur" id="umur" placeholder="masukkan umur" disabled value="{{$kunjungan->pasien_umur}}">
                         <div class="invalid-feedback error-umur"></div>
                     </div>
                 </div>

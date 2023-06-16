@@ -5,7 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="aGL9mgKAjitF0e3BQVfxLGjyunp6mtfBGqik1DZZ" />
-    <title>SI Retensi Online | RSUD WANGAYA</title>
+    <title>SI Retensi Online | RSUD TABANAN</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet" />
 
     <link id="gull-theme" rel="stylesheet" href="{{asset('assets/styles/css/themes/lite-purple.min.css')}}" />

@@ -61,6 +61,10 @@
                         Kecamatan
                     </label>
                     <div class="col-lg-11 mt-2">
+                        <input type="text" class="form-control kecamatan" name="kecamatan" id="kecamatan" placeholder="masukkan kecamatan">
+                        <div class="invalid-feedback error-kecamatan"></div>
+                    </div>
+                    {{-- <div class="col-lg-11 mt-2">
                         <select class="form-control kecamatan" name="kecamatan" id="kecamatan">
                             <option value="">Pilih kecamatan</option>
                             @foreach ($kecamatan as $kecamatan)
@@ -68,7 +72,7 @@
                             @endforeach
                         </select>
                         <div class="invalid-feedback error-kecamatan"></div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="form-group row">
                     <label for="nik" class="ul-form__label ul-form--margin col-lg-1   col-form-label ">

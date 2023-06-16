@@ -7,7 +7,7 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>SI Retensi Online | RSUD WANGAYA | Login</title>
+        <title>SI Retensi Online | RSUD TABANAN | Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -23,7 +23,7 @@
 
         <style>
             body {
-                background-image: url('https://jarrakposbali.com/wp-content/uploads/2022/09/IMG-20220925-WA0002.jpg');
+                background-image: url('https://d1ojs48v3n42tp.cloudfront.net/provider_location_banner/225855_3-3-2020_1-51-8.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;
@@ -42,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="text-primary p-4">
-                                            <h5 class="text-primary">SI Retensi Online | RSUD WANGAYA</h5>
+                                            <h5 class="text-primary">SI Retensi Online | RSUD TABANAN</h5>
                                             <p>Log in dengan identitas anda</p>
                                         </div>
                                     </div>

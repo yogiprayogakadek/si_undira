@@ -99,9 +99,16 @@ class KunjunganController extends Controller
     public function edit($kunjungan_id)
     {
         $kunjungan = Kunjungan::find($kunjungan_id);
-        $pasien = Pasien::where('is_active', true)->pluck('nama', 'id')->prepend('Pilih nama pasien...', '')->toArray();
+        // $pasien = Pasien::where('is_active', true)->pluck('nama', 'id')->prepend('Pilih nama pasien...', '')->toArray();
+
+        $currentDate = new DateTime();
+        $tanggal_lahir = new DateTime($kunjungan->pasien->tanggal_lahir);
+        $interval = $tanggal_lahir->diff($currentDate);
+
+        $kunjungan['pasien_umur'] = $interval->y . ' tahun';
+
         $view = [
-            'data' => view('main.kunjungan.edit', compact('kunjungan', 'pasien'))->render()
+            'data' => view('main.kunjungan.edit', compact('kunjungan'))->render()
         ];
 
         return response()->json($view);
